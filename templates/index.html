@@ -1,0 +1,72 @@
+<html>
+    <head>
+        <title> Flask Image </title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    </head>
+    <body  class="d-flex h-100 text-center text-bg-dark">
+        
+    
+        <div class="container">
+            <p><h1 align="center">721 final Project</h1></p>
+            <div class="container">
+                <h2> Benign or Malignant? </h2>
+                <p> Skin cancer is a major public health problem, with over 5,000,000 newly diagnosed cases in the United States every year. Melanoma is the deadliest form of skin cancer, responsible for an overwhelming majority of skin cancer deaths. Although the mortality is significant, when detected early, melanoma survival exceeds 95%. </p>
+
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="thumbnail">
+                        <img src="static/imgs/b1.jpg" style="width:100%">
+                        <div class="caption">
+                          <p>Benign Cancer 1.</p>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="thumbnail">
+                        <img src="static/imgs/b2.jpg" style="width:100%">
+                        <div class="caption">
+                          <p>Benign Cancer 2</p>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="thumbnail">
+                        <img src="static/imgs/m1.jpg" style="width:100%">
+                        <div class="caption">
+                          <p>Malignant Cancer 1</p>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+
+            <h3> Select a image to upload </h3>
+            <p>
+                {% with messages = get_flashed_messages()%}
+                {% if messages %}
+                <ul>
+                    {%for message in messages%}
+                    <li>{{message}}</li>
+                    {%endfor%}
+                </ul>
+                {% endif %}
+                {% endwith %}
+            </p>
+            <div class="row">
+                <form method="post" action="/" enctype="multipart/form-data">
+                    <dl>
+                        <p>
+                            <input type="file" name="file" class="form-control" autocomplete="off" required>
+                        </p>
+                    </dl>
+                    <p>
+                        <input type="submit" value="Submit" class="btn btn-lg btn-light fw-bold border-white bg-white">
+                    </p>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
